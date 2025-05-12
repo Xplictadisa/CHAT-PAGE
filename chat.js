@@ -1,14 +1,26 @@
+const pageContainer = document.querySelector('.chat-container')
 const chatBodyContianer = document.querySelector('.js-chatbody');
 const textArea = document.querySelector('.js-text-area textarea');
 const sendChatBtn = document.querySelector('.js-sendBtn');
 const mediaHtml = document.querySelector('.js-media');
 let timer; 
 
-/* render conversation on page load */
+/* render conversation on page-load and set height of the page */
+ handlePageHeight()
  renderChat()
- autoChat()
+//  autoChat()
 
-/* this array contains list of chats been retrieved from the browser storage and defaul value of [] if null is returned*/
+/* listen for window resize*/
+window.addEventListener('resize', () => {
+  console.log(window.innerHeight, window.innerWidth)
+  let timeout;
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    handlePageHeight()
+  }, 200)
+})
+
+/* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
 
 textArea.addEventListener('keydown', (event) => {
@@ -40,6 +52,11 @@ function handleChat() {
   renderChat()
 }
 
+function handlePageHeight() {
+  document.documentElement.style.setProperty('--windowHeight', `${window.innerHeight}px`)
+  document.documentElement.style.setProperty('--windowWidth', `${window.innerWidth}px`)
+}
+
 function saveToStorage() {
   localStorage.setItem('conversation', JSON.stringify(conversation))
 }
@@ -48,7 +65,6 @@ function addToChat() {
   if (textArea.value.trim() !== '') {
     conversation.unshift({type: 'sender', value: textArea.value})
     saveToStorage()
-    console.log(conversation)
   }
 }
 
@@ -91,7 +107,6 @@ async function autoChat() {
       resolve()
     }, 20000);
   });
-  console.log(conversation)
 }
-// console.log(handleChat());
-// console.log(localStorage)
+
+// conseole.log(localStorage)

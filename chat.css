@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  --windowHeight: 100vh;
+  --windowWidth: 100vw
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,12 +13,13 @@
 }
 
 .chat-container {
-  height: 100vh;
-  width: 100vw;
+  height: var(--windowHeight);
+  width: var(--windowWidth);
   max-width: 500px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  border: 2px solid red;
 }
 
 .head {
@@ -108,7 +114,7 @@
 
 .chatbody {
   flex-flow: 1;
-  height: calc(100vh - 100px);
+  height: calc(var(--windowHeight, 100vh) - 100px);
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
