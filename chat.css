@@ -117,7 +117,11 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdFKYelwypTmfSeLhNmrz3ao4NTvL9j205Q&s'), rgb(139, 139, 180);
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdqe9epmp1Hhk9-Y3DAzRGKTuyp_0fnHcM3Q&s'), rgb(139, 139, 180);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* styles for each chat items */
