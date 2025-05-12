@@ -13,7 +13,7 @@
       <!-- contact profile and name div -->
       <div class="contact-details">
         <img src="media/image/penguin-svgrepo-com.svg" alt="contact picture">
-        <div class="contact-name">Your Name</div>
+        <div class="contact-name">Contact Name</div>
       </div>
       <!-- voice call and videocall div -->
       <div class="utility">
@@ -22,18 +22,24 @@
       </div>
     </div>
     <!-- conversations body div -->
-    <div class="chat b"></div>
+    <div class="chat chatbody js-chatbody"></div>
+
     <!-- text input section -->
     <div class="chat c">
       <div class="add-container">
         <ion-icon class="add" name="add-outline"></ion-icon>
       </div>
-      <div class="text-input">
-        <input type="text">
+      <div class="text-area js-text-area">
+        <textarea name="" id="chatInput"></textarea>
       </div>
-      <div class="media">
+      <div class="media js-media">
         <ion-icon class="icon" name="camera-outline"></ion-icon>
         <ion-icon class="icon" name="mic-outline"></ion-icon>
+      </div>
+      
+      <div class="sendBtn js-sendBtn">
+        <!-- this div contain a send icon whose display is set to none -->
+         <ion-icon style="font-weight: 800;" name="send-outline"></ion-icon>
       </div>
     </div>
   </div>
@@ -41,5 +47,7 @@
   <!-- ionicons cdn -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- page script -->
+   <script src="chat.js"></script>
 </body>
 </html>

@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif ;
 }
 
 .chat-container {
@@ -11,18 +14,13 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  border: 2px solid red;
 }
 
-.head, .c {
+.head {
   height: 50px;
   background-color: rgb(54, 54, 54);
 }
 
-.b {
-  flex-flow: 1;
-  height: calc(100vh - 100px);
-}
 
 .head {
   display: flex;
@@ -52,29 +50,106 @@
 
 .c {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 10px;
   overflow: hidden;
   color: white;
-  padding: 0 10px;
+  padding: 5px 10px;
   justify-content: space-between;
+  background-color: rgb(54, 54, 54);
+  min-height: 50px;
 }
 
 
-.c .text-input {
+.c .text-area {
   flex: 1;
 }
 
-.c .text-input input {
+.c .text-area #chatInput {
+  resize: none;
   width: 100%;
   padding: 5px 15px;
   outline: none;
   border: none;
   border-radius: 20px;
   font-size: 16px;
+  overflow-wrap: break-word;
+  height: 30px;
+  scrollbar-width: none;
+  background-color: white;
 }
 
-.c .add {
+
+#chatInput:focus {
+  max-height: 300px;
+}
+
+.c .add-container .add {
   font-size: 25px;
 }
 
+.c .sendBtn {
+  display: none;
+}
+
+.c .showSendBtn {
+  display: flex;
+  background-color: green;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.hideMedia {
+  display: none;
+}
+
+.chatbody {
+  flex-flow: 1;
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 0 10px 5px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  background: url(''), rgb(139, 139, 180);
+}
+
+/* styles for each chat items */
+
+.chatbody .chat-item {
+  width: fit-content;
+  max-width: 65%;
+  max-height: 500px;
+  min-width: 100px;
+  overflow-y: hidden;
+  padding: 10px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  overflow-wrap: break-word;
+  flex-shrink: 0;
+  color: white;
+  font-size: 15px;
+  background-color: rgb(169, 68, 169);
+  position: relative;
+}
+
+.chatbody .chat-item span {
+  font-size: 10px;
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+}
+.chatbody .sender {
+  align-self: flex-end;
+}
+
+.chatbody .receiver {
+  align-self: flex-start;
+  background-color: palevioletred;
+}
