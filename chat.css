@@ -117,7 +117,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  background: url(''), rgb(139, 139, 180);
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdFKYelwypTmfSeLhNmrz3ao4NTvL9j205Q&s'), rgb(139, 139, 180);
 }
 
 /* styles for each chat items */

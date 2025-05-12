@@ -6,7 +6,7 @@ let timer;
 
 /* render conversation on page load */
  renderChat()
-//  autoChat()
+ autoChat()
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
