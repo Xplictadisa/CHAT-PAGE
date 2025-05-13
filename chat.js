@@ -26,7 +26,7 @@ textArea.addEventListener('focus', () => {
   
   timeout = setTimeout(() => {
    handlePageHeight();
-    document.querySelector('body').style.transform = `translateY(100px)`
+    document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
   // console.log('page resized')
   // if (window.visualViewport.height < window.innerHeight) {
   //   HeaderHTML.classList.add('sticky');
