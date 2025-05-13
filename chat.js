@@ -4,7 +4,9 @@ const textArea = document.querySelector('.js-text-area textarea');
 const sendChatBtn = document.querySelector('.js-sendBtn');
 const mediaHtml = document.querySelector('.js-media');
 let timer; 
-
+console.log('updated')
+console.log(window.visualViewport.height)
+console.log(window.innerHeight)
 /* render conversation on page-load and set height of the page */
  handlePageHeight()
  renderChat()
@@ -12,6 +14,7 @@ let timer;
 
 /* listen for window resize*/
 window.addEventListener('resize', () => {
+  console.log('page resized')
   let timeout;
   clearTimeout(timeout)
   timeout = setTimeout(() => {
@@ -21,6 +24,7 @@ window.addEventListener('resize', () => {
 /* resize when input gets focuses*/
 textArea.addEventListener('focus', () => {
   handlePageHeight();
+  console.log(window.visualViewport.height)
 });
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
@@ -57,7 +61,9 @@ function handleChat() {
 
 function handlePageHeight() {
   document.documentElement.style.setProperty('--windowHeight', `${window.visualViewport.height}px`)
-  document.documentElement.style.setProperty('--windowWidth', `${window.visualViewport.width}px`)
+  document.documentElement.style.setProperty('--windowWidth', `${window.visualViewport.width}px`);
+  pageContainer.offsetHeight;
+  pageContainer.offsetWidth;
 }
 
 function saveToStorage() {
