@@ -20,10 +20,13 @@ window.visualViewport.addEventListener('resize', () => {
 })
 
 /* resize when input gets focuses*/
-
+let timeout;
 textArea.addEventListener('focus', () => {
+  clearTimeout(timeout)
   if (window.visualViewport.height < window.innerHeight) {
-    document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
+    setTimeout(() => {
+       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
+    }, 300)
   }
 });
 
