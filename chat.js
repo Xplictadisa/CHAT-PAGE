@@ -20,23 +20,11 @@ window.visualViewport.addEventListener('resize', () => {
 })
 
 /* resize when input gets focuses*/
-let timeout;
+
 textArea.addEventListener('focus', () => {
-  clearTimeout(timeout)
-  
-  timeout = setTimeout(() => {
-   handlePageHeight();
+  if (window.visualViewport.height < window.innerHeight) {
     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
-  // console.log('page resized')
-  // if (window.visualViewport.height < window.innerHeight) {
-  //   HeaderHTML.classList.add('sticky');
-  //   document.documentElement.style.setProperty('--windowScrollY', `${window.scrollY}px`)
-  // } else {
-  //   HeaderHTML.classList.remove('sticky');
-  //   document.documentElement.style.removeProperty('--windowScrollY')
-  // }
-  // console.log(window.visualViewport.height)
- }, 1000)
+  }
 });
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
@@ -74,8 +62,6 @@ function handleChat() {
 function handlePageHeight() {
   document.documentElement.style.setProperty('--windowHeight', `${window.visualViewport.height}px`)
   document.documentElement.style.setProperty('--windowWidth', `${window.visualViewport.width}px`);
-  // pageContainer.offsetHeight;
-  // pageContainer.offsetWidth;
 }
 
 function saveToStorage() {
