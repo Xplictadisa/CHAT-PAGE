@@ -12,22 +12,12 @@ let timer;
 //  autoChat()
 
 /* listen for viewport change resize*/
-let timeout;
+let timeout
 window.visualViewport.addEventListener('resize', () => {
-  
   clearTimeout(timeout)
-  setTimeout(() => {
-    handlePageHeight()
-    if (window.scrollY !== 0) {
-    HeaderHTML.style.position = 'sticky';
-    HeaderHTML.style.top = `${window.scrollY - 50}px`
-  } else {
-    HeaderHTML.style.position = 'fixed';
-    HeaderHTML.style.top = '0px'
-  }
+  timeout = setTimeout(() => {
+    document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
   }, 300)
-
-  // document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
 })
 
 /* resize when input gets focuse and lose focus*/
