@@ -12,13 +12,8 @@ let timer;
 //  autoChat()
 
 /* listen for viewport change resize*/
-let pageTimeout;
 window.visualViewport.addEventListener('resize', () => {
-  clearTimeout(pageTimeout)
   handlePageHeight()
-  pageTimeout = setTimeout(() => {
-    location.reload()
-  }, 200)
 })
 
 /* resize when input gets focuses*/
