@@ -57,6 +57,7 @@ textArea.addEventListener('input', () => {
 sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
+  textArea.focus()
 })
 
 
