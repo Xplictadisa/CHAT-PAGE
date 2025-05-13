@@ -17,7 +17,7 @@ window.visualViewport.addEventListener('resize', () => {
   clearTimeout(timeout)
   timeout = setTimeout(() => {
     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
-  }, 100)
+  }, 50)
 })
 
 /* resize when input gets focuse and lose focus*/
