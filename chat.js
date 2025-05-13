@@ -16,16 +16,24 @@ window.visualViewport.addEventListener('resize', () => {
   handlePageHeight()
 })
 
-/* resize when input gets focuses*/
+/* resize when input gets focuse and lose focus*/
 let timeout;
 textArea.addEventListener('focus', () => {
   clearTimeout(timeout)
     timeout = setTimeout(() => {
        document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
     }, 300)
-  
 });
 
+let clear;
+textArea.addEventListener('blur', () => {
+  clearTimeout(clear)
+  clear = setTimeout(() => {
+       document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`
+    }, 100)
+})
+
+console.log(document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`)
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
 
