@@ -14,7 +14,7 @@ let timer;
 /* listen for viewport change resize*/
 
 window.visualViewport.addEventListener('resize', () => {
-  // handlePageHeight()
+  handlePageHeight()
   if (window.scrollY !== 0) {
     HeaderHTML.style.position = 'sticky';
     HeaderHTML.style.top = `${window.scrollY - 50}px`
