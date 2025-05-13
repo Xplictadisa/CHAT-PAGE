@@ -14,10 +14,10 @@ let timer;
 /* listen for viewport change resize*/
 let timeout
 window.visualViewport.addEventListener('resize', () => {
-  document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
   clearTimeout(timeout)
   timeout = setTimeout(() => {
-    console.log('timer')
+    document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
+    handlePageHeight()
   }, 50)
 })
 
