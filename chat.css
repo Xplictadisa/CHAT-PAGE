@@ -19,6 +19,8 @@ body {
   overflow-y: hidden;
   position: relative;
   transition: transform 0.3s ease;
+  border-top: 1px solid rgb(54, 54, 54);
+  margin-top: 0;
 }
 
 /* header section style */
