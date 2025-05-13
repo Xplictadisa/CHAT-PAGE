@@ -14,8 +14,16 @@ let timer;
 /* listen for viewport change resize*/
 
 window.visualViewport.addEventListener('resize', () => {
-  handlePageHeight()
-  document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
+  // handlePageHeight()
+  if (window.scrollY !== 0) {
+    HeaderHTML.style.position = 'sticky';
+    HeaderHTML.style.top = `${window.scrollY}px`
+  } else {
+    HeaderHTML.style.position = 'fixed';
+    HeaderHTML.style.top = window.scrollY
+  }
+
+  // document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
 })
 
 /* resize when input gets focuse and lose focus*/
