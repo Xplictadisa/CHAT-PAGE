@@ -5,9 +5,6 @@ const textArea = document.querySelector('.js-text-area textarea');
 const sendChatBtn = document.querySelector('.js-sendBtn');
 const mediaHtml = document.querySelector('.js-media');
 let timer; 
-console.log('updated')
-console.log(window.visualViewport.height)
-console.log(window.innerHeight)
 
 /* render conversation on page-load and set height of the page */
  handlePageHeight()
@@ -15,19 +12,23 @@ console.log(window.innerHeight)
 //  autoChat()
 
 /* listen for viewport change resize*/
+let pageTimeout;
 window.visualViewport.addEventListener('resize', () => {
+  clearTimeout(pageTimeout)
   handlePageHeight()
+  pageTimeout = setTimeout(() => {
+    location.reload()
+  }, 200)
 })
 
 /* resize when input gets focuses*/
 let timeout;
 textArea.addEventListener('focus', () => {
   clearTimeout(timeout)
-  if (window.visualViewport.height < window.innerHeight) {
-    setTimeout(() => {
+    timeout = setTimeout(() => {
        document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
     }, 300)
-  }
+  
 });
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
