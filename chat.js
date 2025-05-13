@@ -14,7 +14,7 @@ let timer;
 /* listen for viewport change resize*/
 let timeout;
 window.visualViewport.addEventListener('resize', () => {
-  // handlePageHeight()
+  handlePageHeight()
   clearTimeout(timeout)
   setTimeout(() => {
     if (window.scrollY !== 0) {
