@@ -12,8 +12,17 @@
   font-family: "Roboto", sans-serif ;
 }
 
+body {
+  background: url(''), rgb(139, 139, 180);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+
 /* header section style */
 .head-container {
+  height: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,13 +30,11 @@
   background-color: rgb(54, 54, 54);
   display: flex;
   justify-content: center;
-}
-.head {
-  height: 50px;
+  z-index: 100;
 }
 
-
 .head {
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,11 +83,6 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdqe9epmp1Hhk9-Y3DAzRGKTuyp_0fnHcM3Q&s'), rgb(139, 139, 180);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 /* styles for each chat items */
@@ -171,6 +173,7 @@
   background-color: rgb(54, 54, 54);
   display: flex;
   justify-content: center;
+  z-index: 100;
 }
 
 .sendmsg-container .sendmsg {
