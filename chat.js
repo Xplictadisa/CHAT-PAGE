@@ -23,7 +23,8 @@ window.addEventListener('resize', () => {
 })
 /* resize when input gets focuses*/
 textArea.addEventListener('focus', () => {
-  handlePageHeight();
+  // handlePageHeight();
+  pageContainer.style.height = '50px'
   console.log(window.visualViewport.height)
 });
 
