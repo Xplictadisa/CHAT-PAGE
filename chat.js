@@ -15,6 +15,12 @@ console.log(window.innerHeight)
 
 /* listen for viewport change resize*/
 window.visualViewport.addEventListener('resize', () => {
+  handlePageHeight()
+})
+
+/* resize when input gets focuses*/
+textArea.addEventListener('focus', () => {
+  handlePageHeight();
   console.log('page resized')
   if (window.visualViewport.height < window.innerHeight) {
     HeaderHTML.classList.add('sticky');
@@ -23,12 +29,6 @@ window.visualViewport.addEventListener('resize', () => {
     HeaderHTML.classList.remove('sticky');
     document.documentElement.style.removeProperty('--windowScrollY')
   }
-})
-
-/* resize when input gets focuses*/
-textArea.addEventListener('focus', () => {
-  // handlePageHeight();
-  // HeaderHTML.classList.add('sticky')
   console.log(window.visualViewport.height)
 });
 
