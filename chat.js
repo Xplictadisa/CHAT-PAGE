@@ -12,13 +12,10 @@ let timer;
 //  autoChat()
 
 /* listen for viewport change resize*/
-let timeout;
+
 window.visualViewport.addEventListener('resize', () => {
-  clearTimeout(timeout)
   handlePageHeight()
-  timeout = setTimeout(() => {
-       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
-    }, 300)
+  document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
 })
 
 /* resize when input gets focuse and lose focus*/
@@ -42,6 +39,11 @@ textArea.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     handleChat()
     textArea.value = ''
+    const lastMsg = document.getElementById('chat-item0');
+    lastMsg.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  })
   }
 });
 
@@ -59,9 +61,15 @@ sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
   textArea.focus()
+  const lastMsg = document.getElementById('chat-item0');
+  lastMsg.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  })
 })
 
-
+const lastMsg = document.getElementById('chat-item0');
+console.log(lastMsg)
 /* FUNCTIONS SECTION */
 function handleChat() {
   addToChat()
@@ -86,11 +94,11 @@ function addToChat() {
 
 function renderChat () {
   const chats = JSON.parse(localStorage.getItem('conversation')) ?? [];
-  const conversation = chats.map((item) => {
+  const conversation = chats.map((item, index) => {
     const class1 = (item.type === 'sender') ? 'sender': 'receiver';
     const time = getCurrentTime()
     return (
-       `<div class="chat-item ${class1}">
+       `<div class="chat-item ${class1}" id="chat-item${index}">
           <div>${item.value}</div>
           <span>${time}</span>
        </div>`
