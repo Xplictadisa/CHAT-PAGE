@@ -19,8 +19,12 @@ window.visualViewport.addEventListener('resize', () => {
 })
 
 /* resize when input gets focuses*/
+let timeout;
 textArea.addEventListener('focus', () => {
-  handlePageHeight();
+  clearTimeout(timeout)
+  
+  timeout = setTimeout(() => {
+   handlePageHeight();
   console.log('page resized')
   if (window.visualViewport.height < window.innerHeight) {
     HeaderHTML.classList.add('sticky');
@@ -30,6 +34,7 @@ textArea.addEventListener('focus', () => {
     document.documentElement.style.removeProperty('--windowScrollY')
   }
   console.log(window.visualViewport.height)
+ }, 1000)
 });
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
