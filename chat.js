@@ -12,28 +12,29 @@ let timer;
 //  autoChat()
 
 /* listen for viewport change resize*/
+let timeout;
 window.visualViewport.addEventListener('resize', () => {
+  clearTimeout(timeout)
   handlePageHeight()
+  timeout = setTimeout(() => {
+       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
+    }, 300)
 })
 
 /* resize when input gets focuse and lose focus*/
-let timeout;
 textArea.addEventListener('focus', () => {
-  clearTimeout(timeout)
-    timeout = setTimeout(() => {
-       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`
-    }, 300)
+  
 });
 
-let clear;
-textArea.addEventListener('blur', () => {
-  clearTimeout(clear)
-  clear = setTimeout(() => {
-       document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`
-    }, 100)
-})
+// let clear;
+// textArea.addEventListener('blur', () => {
+//   clearTimeout(clear)
+//   clear = setTimeout(() => {
+//        document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`
+//     }, 100)
+// })
 
-console.log(document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`)
+
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
 
@@ -110,7 +111,7 @@ function getCurrentTime() {
   return currentTime
 }
 
-/* function that automatically add to the  conversation */
+/* function that automatically add msg to the conversation array*/
 
 async function autoChat() {
   clearInterval(timer);
