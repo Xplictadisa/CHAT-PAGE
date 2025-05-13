@@ -12,13 +12,16 @@ let timer;
 
 /* listen for window resize*/
 window.addEventListener('resize', () => {
-  console.log(window.innerHeight, window.innerWidth)
   let timeout;
   clearTimeout(timeout)
   timeout = setTimeout(() => {
     handlePageHeight()
   }, 200)
 })
+/* resize when input gets focuses*/
+textArea.addEventListener('focus', () => {
+  handlePageHeight();
+});
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
@@ -53,8 +56,8 @@ function handleChat() {
 }
 
 function handlePageHeight() {
-  document.documentElement.style.setProperty('--windowHeight', `${window.innerHeight}px`)
-  document.documentElement.style.setProperty('--windowWidth', `${window.innerWidth}px`)
+  document.documentElement.style.setProperty('--windowHeight', `${window.visualViewport.height}px`)
+  document.documentElement.style.setProperty('--windowWidth', `${window.visualViewport.width}px`)
 }
 
 function saveToStorage() {
