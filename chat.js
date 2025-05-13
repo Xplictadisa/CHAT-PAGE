@@ -14,14 +14,17 @@ console.log(window.innerHeight)
 //  autoChat()
 
 /* listen for viewport change resize*/
-// window.visualViewport.addEventListener('resize', () => {
-//   console.log('page resized')
-//   let timeout;
-//   clearTimeout(timeout)
-//   timeout = setTimeout(() => {
-//     handlePageHeight()
-//   }, 200)
-// })
+window.visualViewport.addEventListener('resize', () => {
+  console.log('page resized')
+  if (window.visualViewport.height < window.innerHeight) {
+    HeaderHTML.classList.add('sticky');
+    document.documentElement.style.setProperty('--windowScrollY', `${window.scrollY}px`)
+  } else {
+    HeaderHTML.classList.remove('sticky');
+    document.documentElement.style.removeProperty('--windowScrollY')
+  }
+})
+
 /* resize when input gets focuses*/
 textArea.addEventListener('focus', () => {
   // handlePageHeight();
