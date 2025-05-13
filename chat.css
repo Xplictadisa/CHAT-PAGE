@@ -56,7 +56,8 @@
 
 /* chatbody style section */
 .chat-container {
-  height: calc(var(--windowHeight) - 100px);
+  /* height: calc(var(--windowHeight) - 100px); */
+  height: calc(100vh - 100px);
   width: var(--windowWidth);
   max-width: 500px;
   margin: 0 auto;
@@ -72,7 +73,7 @@
 }
 .chatbody {
   /* width: 100%; */
-  /* height: 100%; */
+  height: 100%;
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;

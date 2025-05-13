@@ -1,3 +1,4 @@
+const HeaderHTML = document.querySelector('.head-container');
 const pageContainer = document.querySelector('.chat-container')
 const chatBodyContianer = document.querySelector('.js-chatbody');
 const textArea = document.querySelector('.js-text-area textarea');
@@ -12,19 +13,19 @@ console.log(window.innerHeight)
  renderChat()
 //  autoChat()
 
-/* listen for window resize*/
-window.addEventListener('resize', () => {
-  console.log('page resized')
-  let timeout;
-  clearTimeout(timeout)
-  timeout = setTimeout(() => {
-    handlePageHeight()
-  }, 200)
-})
+/* listen for viewport change resize*/
+// window.visualViewport.addEventListener('resize', () => {
+//   console.log('page resized')
+//   let timeout;
+//   clearTimeout(timeout)
+//   timeout = setTimeout(() => {
+//     handlePageHeight()
+//   }, 200)
+// })
 /* resize when input gets focuses*/
 textArea.addEventListener('focus', () => {
   // handlePageHeight();
-  pageContainer.style.height = '50px'
+  // HeaderHTML.classList.add('sticky')
   console.log(window.visualViewport.height)
 });
 
