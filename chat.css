@@ -13,6 +13,12 @@
   font-family: "Roboto", sans-serif ;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  border: 3px solid brown;
+}
 
 /* header section style */
 .head-container {
