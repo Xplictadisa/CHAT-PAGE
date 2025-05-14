@@ -22,19 +22,6 @@ window.visualViewport.addEventListener('resize', () => {
   }, 50)
 })
 
-/* resize when input gets focuse and lose focus*/
-textArea.addEventListener('focus', () => {
-  
-});
-
-// let clear;
-// textArea.addEventListener('blur', () => {
-//   clearTimeout(clear)
-//   clear = setTimeout(() => {
-//        document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`
-//     }, 100)
-// })
-
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
@@ -65,11 +52,12 @@ sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
   textArea.focus()
-  const lastMsg = document.getElementById('chat-item0');
-  lastMsg.scrollIntoView({
+  chatBodyContianer.scrollTo({
+    top: chatBodyContianer.scrollHeight,
     behavior: 'smooth',
-    block: 'center'
   })
+    sendChatBtn.classList.remove('showSendBtn');
+    mediaHtml.classList.remove('hideMedia')
 })
 
 const lastMsg = document.getElementById('chat-item0');
