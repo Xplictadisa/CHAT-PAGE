@@ -82,7 +82,7 @@ body {
   height: calc(var(--windowHeight) - 100px);
   width: var(--windowWidth);
   max-width: 500px;
-  /* background: url(''), rgb(139, 139, 180); */
+  background: url(''), rgb(139, 139, 180);
   scroll-behavior: smooth;
   scrollbar-width: none;
   background-repeat: no-repeat;
