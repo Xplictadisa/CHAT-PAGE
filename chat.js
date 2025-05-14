@@ -7,7 +7,7 @@ const mediaHtml = document.querySelector('.js-media');
 let timer; 
 
 /* render conversation on page-load and set height of the page */
-//  handlePageHeight()
+ handlePageHeight()
  renderChat()
 //  autoChat()
 
