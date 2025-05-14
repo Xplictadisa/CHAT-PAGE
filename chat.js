@@ -13,20 +13,18 @@ let timer;
 
 /* listen for viewport change resize*/
 let timeout
-// window.visualViewport.addEventListener('resize', () => {
-//   clearTimeout(timeout)
-//   timeout = setTimeout(() => {
-//     if (window.scrollY !== 0) {
-//       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
-//     } else {
-//       document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`;
-//     }
-//     handlePageHeight()
-//   }, 50)
-// })
-document.body.addEventListener('scroll', () => {
-  document.body.style.transform = `translateY(${window.scrollY}px)`
+window.visualViewport.addEventListener('resize', () => {
+  handlePageHeight()
+  // clearTimeout(timeout)
+  // timeout = setTimeout(() => {
+  //   if (window.scrollY !== 0) {
+  //     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
+  //   } else {
+  //     document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`;
+  //   }
+  // }, 50)
 })
+
 
 /* this array contains list of chats been retrieved from the browser storage and defaul value of [] is set if null is returned*/
 const conversation = JSON.parse(localStorage.getItem('conversation')) ?? [];
