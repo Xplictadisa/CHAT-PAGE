@@ -17,7 +17,10 @@ window.visualViewport.addEventListener('resize', () => {
   handlePageHeight();
   clearTimeout(timeout)
   timeout = setTimeout(() => {
-    window.scrollY = 0
+    document.body.scrollIntoView({
+      behavior: "smooth",
+      block: 'start'
+    })
   }, 300)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
