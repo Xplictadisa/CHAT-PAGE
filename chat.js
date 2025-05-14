@@ -22,7 +22,7 @@ window.visualViewport.addEventListener('resize', () => {
       block: 'start'
     });
     chatBodyContianer.style.backgroundColor = 'red'
-  }, 300)
+  }, 2000)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
   //     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
