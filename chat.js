@@ -53,7 +53,7 @@ sendChatBtn.addEventListener('click', () => {
   textArea.value = ''
   textArea.focus()
   chatBodyContianer.scrollTo({
-    top: chatBodyContianer.scrollHeight,
+    top: chatBodyContianer.scrollHeight - 50,
     behavior: 'smooth',
   })
     sendChatBtn.classList.remove('showSendBtn');
