@@ -18,6 +18,8 @@ window.visualViewport.addEventListener('resize', () => {
   timeout = setTimeout(() => {
     if (window.scrollY !== 0) {
       document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
+    } else {
+      document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`;
     }
     handlePageHeight()
   }, 50)
