@@ -14,8 +14,11 @@ let timer;
 /* listen for viewport change resize*/
 let timeout
 window.visualViewport.addEventListener('resize', () => {
-  handlePageHeight()
-  // clearTimeout(timeout)
+  handlePageHeight();
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    window.scrollY = 0
+  }, 300)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
   //     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
