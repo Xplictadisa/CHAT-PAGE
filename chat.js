@@ -16,9 +16,10 @@ let timeout
 window.visualViewport.addEventListener('resize', () => {
   clearTimeout(timeout)
   timeout = setTimeout(() => {
+    if (window.scrollY !== 0) {
+      document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
+    }
     handlePageHeight()
-    document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
-    
   }, 50)
 })
 
@@ -55,7 +56,7 @@ sendChatBtn.addEventListener('click', () => {
   const lastMsg = document.getElementById('chat-item0');
   lastMsg.scrollIntoView({
     behavior: 'smooth',
-    block: 'end'
+    block: 'center'
   })
   sendChatBtn.classList.remove('showSendBtn');
   mediaHtml.classList.remove('hideMedia')
