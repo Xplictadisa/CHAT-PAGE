@@ -21,7 +21,7 @@ window.visualViewport.addEventListener('resize', () => {
       behavior: "smooth",
       block: 'start'
     });
-    chatBodyContianer.style.backgroundColor = 'red'
+    chatBodyContianer.style.backgroundColor = 'green'
   }, 2000)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
@@ -65,7 +65,7 @@ sendChatBtn.addEventListener('click', () => {
   const lastMsg = document.getElementById('chat-item0');
   lastMsg.scrollIntoView({
     behavior: 'smooth',
-    block: 'center'
+    block: 'end'
   })
   sendChatBtn.classList.remove('showSendBtn');
   mediaHtml.classList.remove('hideMedia')
