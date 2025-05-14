@@ -20,7 +20,8 @@ window.visualViewport.addEventListener('resize', () => {
     document.body.scrollIntoView({
       behavior: "smooth",
       block: 'start'
-    })
+    });
+    document.body.style.backgroundColor = 'red'
   }, 300)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
