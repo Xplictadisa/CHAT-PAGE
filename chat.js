@@ -21,7 +21,7 @@ window.visualViewport.addEventListener('resize', () => {
       behavior: "smooth",
       block: 'start'
     });
-    chatBodyContianer.style.backgroundColor = 'green'
+    chatBodyContianer.style.backgroundColor = 'blue'
   }, 2000)
   // timeout = setTimeout(() => {
   //   if (window.scrollY !== 0) {
@@ -40,10 +40,10 @@ textArea.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     handleChat()
     textArea.value = ''
-    const lastMsg = document.getElementById('chat-item0');
-    lastMsg.scrollIntoView({
+    chatBodyContianer.scrollTo({
     behavior: 'smooth',
-    block: 'center'
+    top: chatBodyContianer.scrollHeight,
+    left: 0
   })
   }
 });
@@ -62,17 +62,15 @@ sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
   textArea.focus()
-  const lastMsg = document.getElementById('chat-item0');
-  lastMsg.scrollIntoView({
+  chatBodyContianer.scrollTo({
     behavior: 'smooth',
-    block: 'end'
+    top: chatBodyContianer.scrollHeight,
+    left: 0
   })
   sendChatBtn.classList.remove('showSendBtn');
   mediaHtml.classList.remove('hideMedia')
 })
 
-const lastMsg = document.getElementById('chat-item0');
-console.log(lastMsg)
 /* FUNCTIONS SECTION */
 function handleChat() {
   addToChat()
