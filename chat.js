@@ -1,6 +1,6 @@
 const HeaderHTML = document.querySelector('.head-container');
 const pageContainer = document.querySelector('.chat-container')
-const chatBodyContianer = document.querySelector('.js-chatbody');
+const chatBodyContainer = document.querySelector('.js-chatbody');
 const textArea = document.querySelector('.js-text-area textarea');
 const sendChatBtn = document.querySelector('.js-sendBtn');
 const mediaHtml = document.querySelector('.js-media');
@@ -16,20 +16,15 @@ let timeout
 window.visualViewport.addEventListener('resize', () => {
   handlePageHeight();
   clearTimeout(timeout)
-  timeout = setTimeout(() => {
+  
     document.body.scrollIntoView({
       behavior: "smooth",
       block: 'start'
-    });
-    chatBodyContianer.style.backgroundColor = 'blue'
-  }, 2000)
-  // timeout = setTimeout(() => {
-  //   if (window.scrollY !== 0) {
-  //     document.querySelector('body').style.transform = `translateY(${window.scrollY}px)`;
-  //   } else {
-  //     document.querySelector('body').style.transform = `translateY(-${window.scrollY}px)`;
-  //   }
-  // }, 50)
+    })
+    chatBodyContainer.style.backgroundColor = 'pink'
+  // timeout = setTimeout(() => {;
+    
+  // }, 2000)
 })
 
 
@@ -40,9 +35,9 @@ textArea.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     handleChat()
     textArea.value = ''
-    chatBodyContianer.scrollTo({
+    chatBodyContainer.scrollTo({
     behavior: 'smooth',
-    top: chatBodyContianer.scrollHeight,
+    top: chatBodyContainer.scrollHeight,
     left: 0
   })
   }
@@ -62,9 +57,9 @@ sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
   textArea.focus()
-  chatBodyContianer.scrollTo({
+  chatBodyContainer.scrollTo({
     behavior: 'smooth',
-    top: chatBodyContianer.scrollHeight,
+    top: chatBodyContainer.scrollHeight,
     left: 0
   })
   sendChatBtn.classList.remove('showSendBtn');
@@ -106,7 +101,7 @@ function renderChat () {
     )
 
   })
-  chatBodyContianer.innerHTML = conversation.join('')
+  chatBodyContainer.innerHTML = conversation.join('')
 }
 
 function getCurrentTime() {
