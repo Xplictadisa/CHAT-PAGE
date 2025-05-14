@@ -52,12 +52,13 @@ sendChatBtn.addEventListener('click', () => {
   handleChat()
   textArea.value = ''
   textArea.focus()
-  chatBodyContianer.scrollTo({
-    top: chatBodyContianer.scrollHeight - 50,
+  const lastMsg = document.getElementById('chat-item0');
+  lastMsg.scrollIntoView({
     behavior: 'smooth',
+    block: 'end'
   })
-    sendChatBtn.classList.remove('showSendBtn');
-    mediaHtml.classList.remove('hideMedia')
+  sendChatBtn.classList.remove('showSendBtn');
+  mediaHtml.classList.remove('hideMedia')
 })
 
 const lastMsg = document.getElementById('chat-item0');
